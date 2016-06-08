@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+					</div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>{{item.name}}</h1>
+			<h3>
+				<a href="{{url_for('editItem', item_id=item.id)}}">(edit item)</a>
+				<a href="{{url_for('deleteItem', item_id=item.id)}}">(delete item)</a>
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+				<div class="col-md-10 category-list">
+          <ul>
+  					<li>Owner: {{owner.name}}</li>
+            <li>Room: {{room.name}}</li>
+            <li>Value: {{item.value}}</li>
+            <li>Description: {{item.description}}</li>
+          </ul>
+				</div>
+			<div class="col-md-1"></div>
+		</div>
+{% endblock %}

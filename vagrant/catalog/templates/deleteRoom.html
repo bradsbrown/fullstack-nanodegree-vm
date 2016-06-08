@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<h2> Are you sure you want to delete {{room.name}}? </h2>
+<h3> The room and <b>all contents</b> will be deleted.</h3>
+<h3>(Be sure to move all items to another room first if you don't want to lose them)</h3>
+
+<form action="#" method = 'post'>
+
+	<button type="submit" class="btn btn-default delete" id="submit" type="submit">
+	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+	<a href = '{{url_for('listRooms')}}'>Cancel
+		<!-- <button class="btn btn-default delete">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button> -->
+	</a>
+
+</form>
+
+{% endblock %}
