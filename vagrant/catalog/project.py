@@ -323,6 +323,7 @@ def deleteItem(item_id):
             session.delete(item)
             session.commit()
             flash("Item has been deleted!")
+            return redirect(url_for('listRooms'))
     else:
         flash("You can only edit/delete items you created!")
         return redirect(url_for('showItem', item_id=item_id))
